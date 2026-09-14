@@ -14,7 +14,7 @@ function App() {
         setTodos((prevTodos) => {
             return [...prevTodos,{id:uuid4(),name:name,completed:false}]
         });
-        todoNameRef.current.value = null;
+        todoNameRef.current.value = "";
     };
     
     const toggleTodo = (id) => {

@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# React TodoApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React 製のシンプルな Todo アプリです。
 
-## Available Scripts
+> **注釈: Create React App から Vite へ移行しました(2026-09)**
+>
+> このプロジェクトはもともと [Create React App](https://github.com/facebook/create-react-app) (react-scripts) で作成されましたが、以下の理由で [Vite](https://vite.dev/) + [Vitest](https://vitest.dev/) に移行しました。
+>
+> - **セキュリティ**: react-scripts はメンテナンスが終了しており、内部で使う古い依存パッケージ(webpack-dev-server / jest 27 / svgo など)に起因する脆弱性警告が 65 件(critical 3 件含む)出ていた。`overrides` で個別に抑え込む方法は根本解決にならないため、ビルドツールごと置き換えて **脆弱性 0 件** にした。
+> - **公式の非推奨化**: React 公式も CRA を非推奨とし、Vite などへの移行を推奨している。
+> - **開発体験**: 開発サーバの起動・HMR が高速。
+>
+> あわせてパッケージマネージャを npm から **pnpm** に、依存パッケージ(React 19 / uuid 14 / web-vitals 6 など)も最新版に更新しています。
 
-In the project directory, you can run:
+## 必要なもの
 
-### `npm start`
+- Node.js 22+
+- pnpm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## セットアップ
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```sh
+pnpm install
+```
 
-### `npm test`
+## スクリプト
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `pnpm dev`(または `pnpm start`)
 
-### `npm run build`
+開発モードでアプリを起動します。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `pnpm test`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Vitest をウォッチモードで起動します。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `pnpm build`
 
-### `npm run eject`
+本番用ビルドを `dist` フォルダに出力します。
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### `pnpm preview`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`dist` のビルド成果物をローカルで配信して確認します。
